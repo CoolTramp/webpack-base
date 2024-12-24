@@ -1,0 +1,1 @@
+This document outlines the basic configurations of Webpack that can be used as a starting point for new projects.
