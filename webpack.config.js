@@ -33,14 +33,19 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html", // Указываем путь к шаблону HTML
+      template: "./src/index.html", // Шаблон для index.html
     }),
   ],
   devServer: {
-    static: path.resolve(__dirname, "dist"), // Указываем каталог для статических файлов
-    port: 5500, // или любой другой порт, который вам нравится
-    hot: true, // включить горячую перезагрузку
-    open: true, // автоматически откроет браузер
-    historyApiFallback: true, // поддержка "Single Page Applications"
+    static: path.resolve(__dirname, "dist"), // Папка для статических файлов
+    port: 5500, // Порт для сервера
+    hot: true, // Включение горячей перезагрузки
+    open: true, // Открытие браузера
+    watchFiles: ["src/**/*.html", "src/**/*.ts"], // Отслеживание изменений в HTML и TS файлах
+    liveReload: true, // Включение автоматической перезагрузки
+    historyApiFallback: true, // Поддержка SPA
+    client: {
+      overlay: true, // Показывать ошибки в браузере
+    },
   },
 };
