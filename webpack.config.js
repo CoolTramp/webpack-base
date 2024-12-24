@@ -21,7 +21,7 @@ module.exports = {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
-      // Если хотите использовать SCSS/SASS, добавьте это правило
+      // Для SCSS файлов
       {
         test: /\.scss$/,
         use: ["style-loader", "css-loader", "sass-loader"],
@@ -37,8 +37,10 @@ module.exports = {
     }),
   ],
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
-    compress: true,
-    port: 9000,
+    static: path.resolve(__dirname, "dist"), // Указываем каталог для статических файлов
+    port: 5500, // или любой другой порт, который вам нравится
+    hot: true, // включить горячую перезагрузку
+    open: true, // автоматически откроет браузер
+    historyApiFallback: true, // поддержка "Single Page Applications"
   },
 };
